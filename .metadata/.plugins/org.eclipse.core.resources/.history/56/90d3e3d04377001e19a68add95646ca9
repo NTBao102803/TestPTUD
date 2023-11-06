@@ -1,0 +1,6 @@
+package entity;
+
+public class LoaiPhong {
+	private String maLoaiPhong;
+	private String tenLoaiPhong;
+}

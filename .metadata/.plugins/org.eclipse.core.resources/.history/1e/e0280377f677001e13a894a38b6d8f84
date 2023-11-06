@@ -1,0 +1,16 @@
+package entity;
+
+import java.util.Date;
+
+public class NhanVien {
+	private String maNhanVien;
+	private String tenNhanVien;
+	private Date ngaySinh;
+	private String soDienThoai;
+	private String cCCD;
+	private int gioiTinh;
+	private String diaChi;
+	private String chucVu;
+	private String trangThai;
+	
+}

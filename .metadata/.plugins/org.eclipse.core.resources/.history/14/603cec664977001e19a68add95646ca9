@@ -1,0 +1,32 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.sql.Statement;
+import connectDB.ConnectDB;
+import entity.LoaiPhong;
+public class LoaiPhong_DAO {
+	public ArrayList<LoaiPhong> getAlltbCauLacBo() {
+		ArrayList<LoaiPhong> dsLP = new ArrayList<LoaiPhong>();
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "Select * from CauLacBo";
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				String ma = rs.getString(1);
+				String ten = rs.getString(2);
+				LoaiPhong lp = new LoaiPhong(ma, ten);
+				dsLP.add(lp);
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return dsCLB;
+	}
+
+}

@@ -1,0 +1,37 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import connectDB.ConnectDB;
+import entity.TaiKhoan;
+
+
+public class TaiKhoan_DAO {
+	public ArrayList<TaiKhoan> getAllTaiKhoan() {
+		ArrayList<TaiKhoan> dsTaiKhoan = new ArrayList<TaiKhoan>();
+		
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "SELECT* from tbl_TaiKhoan";
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			while(rs.next()) {
+				String ma = rs.getString(1);
+				String ten = rs.getString(2);
+				
+				TaiKhoan tk = new TaiKhoan(ma, ten, ngaySinh);
+				dsTaiKhoan.add(tk);
+			}
+		
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return dsTaiKhoan;
+	}
+}

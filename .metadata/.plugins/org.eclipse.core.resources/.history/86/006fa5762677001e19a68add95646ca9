@@ -1,0 +1,7 @@
+package connectDB;
+
+import java.sql.Connection;
+
+public class ConnectDB {
+	public static Connection con = null;
+}

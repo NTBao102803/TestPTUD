@@ -1,0 +1,41 @@
+package dao;
+
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import connectDB.ConnectDB;
+import java.sql.Statement;
+import entity.PhongHat;
+public class Phong_DAO {
+	public ArrayList<PhongHat> getAllPhong() {
+		ArrayList<PhongHat> dsPhong = new ArrayList<PhongHat>();
+		
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "SELECT* FROM tbl_Phong";
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			while(rs.next()) {
+				String ma = rs.getString(1);
+				String ten = rs.getString(2);
+				float donGia = rs.getFloat(3);
+				String tinhTrang = rs.getString(4);
+				int sucChua = rs.getInt(5);
+				String loai = rs.getString(6);
+				
+				
+				
+//				PhongHat p = new PhongHat(ma, loai, tinhTrang, donGia);
+//				dsPhong.add(p);
+			}
+		
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return dsPhong;
+	}
+}

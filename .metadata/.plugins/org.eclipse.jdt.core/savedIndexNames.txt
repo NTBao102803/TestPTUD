@@ -1,0 +1,6 @@
+INDEX VERSION 1.132+E:\PTUD_DeTai\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1557175354.index
+3794786702.index
+2672019728.index
+1992504519.index
